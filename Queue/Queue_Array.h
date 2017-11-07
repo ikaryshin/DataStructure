@@ -11,18 +11,18 @@ typedef struct {
     int rear;
 } Queue;
 
-Status InitQueue(Queue);
+Status InitQueue(Queue*);
 
-Status DeleteQueue(Queue);
+Status DeleteQueue(Queue*);
 
-Status QueueEmpty(Queue);
+Status QueueEmpty(Queue*);
 
-int QueueLength(Queue);
+int QueueLength(Queue*);
 
-Status ClearQueue(Queue);
+Status ClearQueue(Queue*);
 
-Status EnQueue(Queue, Elem);
+Status EnQueue(Queue*, Elem);
 
-Elem DeQueue(Queue);
+Elem DeQueue(Queue*);
 
 #endif

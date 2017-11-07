@@ -2,9 +2,13 @@
 #include <stdlib.h>
 #include "Stack_List.h"
 
-Status InitStack(Stack S) {
+StackNode InitStack(Stack S) {
+    S = (StackNode) malloc(sizeof(StackNode));
+    if (!S) {
+        exit(ERROR);
+    }
     S->next = NULL;
-    return OK;
+    return S;
 }
 
 Status DeleteStack(Stack S) {
@@ -55,5 +59,15 @@ StackNode Pop(Stack S) {
 }
 
 int main() {
+    Stack S;
+    S = InitStack(S);
+    int nums[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    for (int i = 0; i < 10; i++) {
+        Push(S, nums[i]);
+    }
+    printf("%d\n", StackLength(S));
+    for (int i = 0; i < 10; i++) {
+        printf("%d\n", Pop(S)->e);
+    }
     return 0;
 }

@@ -11,18 +11,18 @@ typedef struct {
     int bottom;
 } Stack;
 
-Status InitStack(Stack);
+Status InitStack(Stack*);
 
-Status DeleteStack(Stack);
+Status DeleteStack(Stack*);
 
-Status StackEmpty(Stack);
+Status StackEmpty(Stack*);
 
-int StackLength(Stack);
+int StackLength(Stack*);
 
-Status ClearStack(Stack);
+Status ClearStack(Stack*);
 
-Status Push(Stack, Elem);
+Status Push(Stack*, Elem);
 
-Elem Pop(Stack);
+Elem Pop(Stack*);
 
 #endif

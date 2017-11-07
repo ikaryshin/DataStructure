@@ -13,7 +13,7 @@ struct Node{
 typedef struct Node* StackNode;
 typedef StackNode Stack;
 
-Status InitStack(Stack);
+StackNode InitStack(Stack);
 
 Status DeleteStack(Stack);
 

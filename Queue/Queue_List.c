@@ -2,9 +2,13 @@
 #include <stdlib.h>
 #include "Queue_List.h"
 
-Status InitQueue(Queue Q) {
+QueueNode InitQueue() {
+    Queue Q = (QueueNode) malloc(sizeof(QueueNode));
+    if (!Q) {
+        exit(ERROR);
+    }
     Q->next = NULL;
-    return OK;
+    return Q;
 }
 
 Status DeleteQueue(Queue Q) {
@@ -19,7 +23,7 @@ Status QueueEmpty(Queue Q) {
 
 int QueueLength(Queue Q) {
     int count = 0;
-    for (QueueNode tmp = Q->next; tmp->next != NULL; tmp = tmp->next) {
+    for (QueueNode tmp = Q->next; tmp != NULL; tmp = tmp->next) {
         count++;
     }
     return count;
@@ -56,5 +60,13 @@ QueueNode DeQueue(Queue Q) {
 }
 
 int main() {
-    return 0;
+    QueueNode Q = InitQueue();
+    int nums[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    for (int i = 0; i < 10; i++) {
+        EnQueue(Q, nums[i]);
+    }
+    printf("%d\n\n", QueueLength(Q)); 
+    for (int i = 0; i < 10; i++) {
+        printf("%d\n", DeQueue(Q)->e);
+    }
 }

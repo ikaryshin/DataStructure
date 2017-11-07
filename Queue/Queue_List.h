@@ -11,7 +11,7 @@ struct Node {
 typedef struct Node* QueueNode;
 typedef QueueNode Queue;
 
-Status InitQueue(Queue);
+QueueNode InitQueue();
 
 Status DeleteQueue(Queue);
 
