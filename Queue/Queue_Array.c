@@ -30,7 +30,8 @@ Status ClearQueue(Queue *Q) {
     return OK;
 }
 
-Status EnQueue(Queue *Q, Elem e) {
+Status EnQueue(Queue *Q, Elem e)
+{
     if (QueueLength(Q) >= MAX_LENGTH) {
         return ERROR;
     }
@@ -43,32 +44,9 @@ Status EnQueue(Queue *Q, Elem e) {
 
 Elem DeQueue(Queue *Q) {
     if (QueueEmpty(Q)) {
-        exit(ERROR);
+        // exit(ERROR);
     }
     return Q->queue_array[Q->front++];
 }
 
-int main() {
-    Queue Q;
-    InitQueue(&Q);
-    int nums[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    for (int i = 0; i < 10; i++) {
-        EnQueue(&Q, nums[i]);
-    }
-    printf("Length: %d\n", QueueLength(&Q));
-    printf("%d\n\n", QueueLength(&Q)); 
-    for (int i = 0; i < 5; i++) {
-        printf("%d\n", DeQueue(&Q));
-    }
-    printf("Length: %d\n", QueueLength(&Q));
-    printf("\n");
-    for (int i = 0; i < 5; i++) {
-        EnQueue(&Q, nums[i]);
-    }
-    printf("Length: %d\n", QueueLength(&Q));
-    printf("\n");
-    for (int i = 0; i < 10; i++) {
-        printf("%d\n", DeQueue(&Q));
-    }
-    printf("Length: %d\n", QueueLength(&Q));
-}
+

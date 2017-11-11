@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Stack_Array.h"
 
 Status InitStack(Stack *S) {
@@ -44,18 +45,4 @@ Elem Pop(Stack *S) {
         return S->stack_array[--S->top];
     }
     exit(ERROR);
-}
-
-int main() {
-    Stack S;
-    InitStack(&S);
-    int nums[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    for (int i = 0; i < 10; i++) {
-        Push(&S, nums[i]);
-    }
-    printf("Length: %d\n", StackLength(&S));
-    for (int i = 0; i < 10; i++) {
-        printf("%d\n", Pop(&S));
-    }
-    return 0;
 }
